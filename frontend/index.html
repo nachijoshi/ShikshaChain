@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShikshaChain - Welcome</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(120deg, #f0fff0 0%, #e0f7fa 100%);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      .glow {
+        box-shadow: 0 0 32px 4px #81e6d966, 0 2px 4px #bee3f869;
+      }
+      .portal-card {
+        transition: transform 0.25s, box-shadow 0.22s;
+        will-change: transform, box-shadow;
+      }
+      .portal-card:hover {
+        transform: translateY(-6px) scale(1.03) rotate(-1deg);
+        box-shadow: 0 8px 32px 4px #81e6d970, 0 2px 8px #81e6d944;
+      }
+      .animated-text span {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.7s forwards;
+        display: inline-block;
+      }
+      .animated-text span:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+      .animated-text span:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .animated-text span:nth-child(3) {
+        animation-delay: 0.15s;
+      }
+      .animated-text span:nth-child(4) {
+        animation-delay: 0.2s;
+      }
+      .animated-text span:nth-child(5) {
+        animation-delay: 0.25s;
+      }
+      .animated-text span:nth-child(6) {
+        animation-delay: 0.3s;
+      }
+      .animated-text span:nth-child(7) {
+        animation-delay: 0.35s;
+      }
+      .animated-text span:nth-child(8) {
+        animation-delay: 0.4s;
+      }
+      .animated-text span:nth-child(9) {
+        animation-delay: 0.45s;
+      }
+      .animated-text span:nth-child(10) {
+        animation-delay: 0.5s;
+      }
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="text-gray-800">
+    <div
+      class="relative container mx-auto px-4 py-8 flex flex-col min-h-screen items-center justify-center"
+    >
+      <header class="text-center mb-16">
+        <h1
+          class="text-5xl md:text-7xl font-extrabold text-green-700 mb-6 glow animated-text"
+        >
+          <span>S</span><span>h</span><span>i</span><span>k</span><span>s</span
+          ><span>h</span><span>a</span><span>C</span><span>h</span
+          ><span>ain</span>
+        </h1>
+        <p
+          class="mt-4 text-xl text-teal-600 font-semibold tracking-wide animate-pulse"
+        >
+          The secure, decentralized examination portal.
+        </p>
+      </header>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-4xl">
+        <!-- Teacher Portal Card -->
+        <a
+          href="teacher.html"
+          class="portal-card bg-gradient-to-tr from-teal-100 via-cyan-100 to-green-100 p-8 rounded-2xl shadow-xl flex flex-col items-center text-center glow hover:scale-105 transition-transform"
+        >
+          <div
+            class="text-6xl mb-4 text-teal-400 drop-shadow animate-bounce"
+            aria-label="Chalkboard Teacher"
+          >
+            👩‍🏫
+          </div>
+          <h2 class="text-3xl font-bold text-teal-700 mb-2 tracking-wide">
+            Teacher Portal
+          </h2>
+          <p class="text-lg text-gray-600 font-medium mb-1">
+            Create, manage & schedule exams securely on blockchain.
+          </p>
+          <button
+            class="mt-4 px-6 py-3 bg-teal-400 text-white rounded-full text-lg font-semibold glow hover:bg-green-400 transition-all"
+          >
+            Go to Portal
+          </button>
+        </a>
+        <!-- Student Portal Card -->
+        <a
+          href="student.html"
+          class="portal-card bg-gradient-to-tr from-green-100 via-cyan-100 to-teal-100 p-8 rounded-2xl shadow-xl flex flex-col items-center text-center glow hover:scale-105 transition-transform"
+        >
+          <div
+            class="text-6xl mb-4 text-green-400 drop-shadow animate-bounce"
+            aria-label="Student"
+          >
+            🎓
+          </div>
+          <h2 class="text-3xl font-bold text-green-700 mb-2 tracking-wide">
+            Student Portal
+          </h2>
+          <p class="text-lg text-gray-600 font-medium mb-1">
+            View exams, take tests & verify results confidently.
+          </p>
+          <button
+            class="mt-4 px-6 py-3 bg-green-400 text-white rounded-full text-lg font-semibold glow hover:bg-teal-400 transition-all"
+          >
+            Go to Portal
+          </button>
+        </a>
+      </div>
+      <!-- Subtle animated background circle for depth (light and soft) -->
+      <div
+        class="absolute inset-0 pointer-events-none -z-10 flex justify-center items-center"
+      >
+        <div
+          class="w-[800px] h-[800px] bg-gradient-to-tr from-green-100/70 via-teal-200/30 to-cyan-100/50 rounded-full blur-3xl opacity-60 animate-pulse"
+        ></div>
+      </div>
+    </div>
+  </body>
+</html>

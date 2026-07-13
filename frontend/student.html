@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShikshaChain - Student Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <div id="dashboardContainer" class="container mx-auto p-4 md:p-8">
+      <header
+        class="flex flex-col md:flex-row justify-between items-center mb-8 bg-white p-4 rounded-xl shadow-lg"
+      >
+        <div class="flex items-center gap-4">
+          <a href="index.html" class="text-indigo-600 hover:text-indigo-800"
+            >&larr; Back to Portal</a
+          >
+          <h1 class="text-4xl font-extrabold text-gray-800">Student Portal</h1>
+        </div>
+        <div>
+          <button
+            id="connectBtn"
+            class="mt-4 md:mt-0 bg-indigo-600 text-white font-semibold py-2 px-6 rounded-lg transition hover:bg-indigo-700 shadow"
+          >
+            Connect MetaMask
+          </button>
+        </div>
+      </header>
+
+      <div
+        id="studentStatus"
+        class="mb-4 text-sm text-gray-700 bg-white p-4 rounded-lg shadow max-h-64 overflow-y-auto"
+      ></div>
+      <div id="examList" class="space-y-4">Loading exams...</div>
+    </div>
+
+    <div id="testTakerContainer" class="container mx-auto p-4 md:p-8 hidden">
+      <header
+        class="flex justify-between items-center mb-6 bg-white p-4 rounded-xl shadow-lg sticky top-0 z-10"
+      >
+        <h2 id="studentExamTitle" class="text-2xl text-gray-800 font-bold">
+          Exam
+        </h2>
+        <button
+          id="exitTestBtn"
+          class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg"
+        >
+          Exit
+        </button>
+      </header>
+
+      <div id="hashGenContainer" class="mb-4">
+        <div class="bg-blue-100 p-6 rounded-lg mb-4 border-2 border-blue-300">
+          <h3 class="text-lg font-bold text-blue-800 mb-3">
+            🔐 Step 1: Generate Your Attempt Hash
+          </h3>
+          <p class="mb-3 text-gray-700">
+            Click the button below to generate your unique "Attempt Hash". This
+            is a cryptographic proof that you took this exam.
+          </p>
+          <p
+            class="mb-4 text-sm text-gray-600 bg-yellow-50 p-3 rounded border border-yellow-200"
+          >
+            <strong>⚠️ IMPORTANT:</strong> Save this hash somewhere safe! You
+            will need it later to view your results after the teacher publishes
+            them.
+          </p>
+          <button
+            id="generateHashBtn"
+            class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow hover:bg-blue-700 transition"
+          >
+            🔒 Generate Attempt Hash
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="studentQuestionsContainer"
+        class="mb-4 hidden space-y-4 max-w-4xl"
+      ></div>
+
+      <div
+        id="submitContainer"
+        class="mb-8 hidden sticky bottom-0 bg-white p-4 rounded-lg shadow-lg border-t-4 border-green-600"
+      >
+        <button
+          id="submitTestBtn"
+          class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 shadow-lg w-full md:w-auto"
+        >
+          Submit Test
+        </button>
+      </div>
+
+      <div id="testResult" class="text-md text-gray-700"></div>
+    </div>
+
+    <div class="container mx-auto mt-12 p-6 bg-white rounded-xl shadow-lg">
+      <h2 class="text-3xl font-bold mb-6 text-indigo-800 border-b pb-3">
+        📊 Check Your Exam Results
+      </h2>
+
+      <div
+        class="mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-2 border-blue-200"
+      >
+        <h3 class="text-xl font-bold mb-4 text-blue-800">🎯 View My Score</h3>
+        <p class="text-sm mb-4 text-gray-700">
+          Enter your Attempt Hash (that you saved when taking the exam) to view
+          your score from the blockchain-verified results.
+        </p>
+
+        <div class="flex flex-col md:flex-row gap-4">
+          <input
+            id="quickExamID"
+            class="flex-1 border-2 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Exam ID (e.g., Physics Final 2025)"
+          />
+          <input
+            id="quickAttemptHash"
+            class="flex-1 border-2 p-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-mono text-sm"
+            placeholder="Your Attempt Hash (0x...)"
+          />
+          <button
+            id="quickFindBtn"
+            class="bg-blue-600 text-white py-3 px-8 rounded-lg hover:bg-blue-700 font-semibold whitespace-nowrap shadow-lg transition"
+          >
+            🔍 Find Score
+          </button>
+        </div>
+        <div id="quickScoreResult" class="mt-6"></div>
+      </div>
+    </div>
+
+    <script src="student.js"></script>
+  </body>
+</html>
